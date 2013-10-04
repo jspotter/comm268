@@ -1,0 +1,103 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://puzzles.about.com/od/spotthedifference/ig/SpotTheDifferenceSol/spotthedifference02.htm
+			 */
+
+			var offset = 500;
+			var differences = {
+				"bird": {
+					"minX": 180,
+					"maxX": 200,
+					"minY": 10,
+					"maxY": 30,
+					"found": false
+				},
+				"hilltop": {
+					"minX": 0,
+					"maxX": 65,
+					"minY": 100,
+					"maxY": 140,
+					"found": false
+				},
+				"ear": {
+					"minX": 240,
+					"maxX": 250,
+					"minY": 115,
+					"maxY": 130,
+					"found": false
+				},
+				"finger": {
+					"minX": 180,
+					"maxX": 195,
+					"minY": 220,
+					"maxY": 235,
+					"found": false
+				},
+				"tail": {
+					"minX": 280,
+					"maxX": 415,
+					"minY": 265,
+					"maxY": 315,
+					"found": false
+				},
+				"fin": {
+					"minX": 435,
+					"maxX": 475,
+					"minY": 150,
+					"maxY": 230,
+					"found": false
+				},
+				"bubbles": {
+					"minX": 25,
+					"maxX": 45,
+					"minY": 360,
+					"maxY": 400,
+					"found": false
+				},
+				"seaweed": {
+					"minX": 395,
+					"maxX": 430,
+					"minY": 365,
+					"maxY": 400,
+					"found": false
+				},
+				"fish": {
+					"minX": 455,
+					"maxX": 500,
+					"minY": 300,
+					"maxY": 320,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Spot The Difference!
+		</h1>
+		<br>
+		<img id="testimage" 
+			src="http://0.tqn.com/d/puzzles/1/0/1/f/4/SD02.jpg"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+		Things left to find:
+		<div id="thingsLeft">
+		</div>
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
