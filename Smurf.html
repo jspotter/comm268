@@ -1,0 +1,68 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://bluebuddies.com/smurf_fun/smurf_spot_the_difference/jpg/Smurf_Spot_the_Difference.jpg
+			 */
+
+			var offset = 280;
+			var differences = {
+				"bee": {
+					"minX": 161,
+					"maxX": 175,
+					"minY": 54,
+					"maxY": 75,
+					"found": false
+				},
+				"patch": {
+					"minX": 164,
+					"maxX": 178,
+					"minY": 278,
+					"maxY": 292,
+					"found": false
+				},
+				"flower": {
+					"minX": 65,
+					"maxX": 85,
+					"minY": 118,
+					"maxY": 138,
+					"found": false
+				},
+				"eyes": {
+					"minX": 171,
+					"maxX": 185,
+					"minY": 156,
+					"maxY": 177,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Spot The Difference!
+		</h1>
+		<br>
+		<img id="testimage" 
+			src="http://bluebuddies.com/smurf_fun/smurf_spot_the_difference/jpg/Smurf_Spot_the_Difference.jpg"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+		Things left to find:
+		<div id="thingsLeft">
+		</div>
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
