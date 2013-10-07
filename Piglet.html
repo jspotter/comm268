@@ -1,0 +1,89 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://everydayok.com/wp-content/uploads/2009/05/everydayok-6-spot-the-difference-between-two-little-piglets.jpg
+			 */
+
+			var offset = 500;
+			var differences = {
+				"Third Apple": {
+					"minX": 162,
+					"maxX": 216,
+					"minY": 148,
+					"maxY": 162,
+					"found": false
+				},
+				"Red Apple": {
+					"minX": 167,
+					"maxX": 193,
+					"minY": 252,
+					"maxY": 277,
+					"found": false
+				},
+				"Mouth": {
+					"minX": 110,
+					"maxX": 150,
+					"minY": 466,
+					"maxY": 490,
+					"found": false
+				},
+				"Tail": {
+					"minX": 210,
+					"maxX": 224,
+					"minY": 593,
+					"maxY": 607,
+					"found": false
+				},
+				"Window": {
+					"minX": 333,
+					"maxX": 388,
+					"minY": 380,
+					"maxY": 495,
+					"found": false
+				},
+				"Suspenders": {
+					"minX": 80,
+					"maxX": 165,
+					"minY": 508,
+					"maxY": 588,
+					"found": false
+				},
+				"Flower": {
+					"minX": 380,
+					"maxX": 400,
+					"minY": 662,
+					"maxY": 682,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Spot The Difference!
+		</h1>
+		<br>
+		<img id="testimage" 
+			src="http://everydayok.com/wp-content/uploads/2009/05/everydayok-6-spot-the-difference-between-two-little-piglets.jpg"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+		Things left to find:
+		<div id="thingsLeft">
+		</div>
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
