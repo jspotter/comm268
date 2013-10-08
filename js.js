@@ -55,9 +55,9 @@ function onImageClick(event, differences, offset) {
 
 	if (!foundSomething) {
 		if (alreadyFound.length != 0) {
-			//alert("You already found the " + alreadyFound + ".");
+			alert("You already found the " + alreadyFound + ".");
 		} else {
-			//alert("Nothing there!");
+			alert("Nothing there!");
 		}
 	}
 }
