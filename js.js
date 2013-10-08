@@ -7,6 +7,7 @@ function onImageClick(event, differences, offset) {
 
 	// Look through each difference to see if the click matters
 	var foundSomething = false;
+	var alreadyFound = "";
 	for (var diff in differences) {
 		var diffInfo = differences[diff];
 
@@ -17,9 +18,12 @@ function onImageClick(event, differences, offset) {
 				x >= diffInfo["minX"] + offset)) && 
 				y <= diffInfo["maxY"] && y >= diffInfo["minY"]) {
 
+			console.log("something");
+
 			// Whoops, we already found this one
 			if (diffInfo["found"]) {
-				alert("You already found the " + diff + ".");
+				console.log("already found");
+				alreadyFound = diff;
 			}
 			
 			// Didn't find this one yet, so mark it as found
@@ -34,14 +38,26 @@ function onImageClick(event, differences, offset) {
 
 				var thingsLeft = parseInt($("#thingsLeft").html());
 				$("#thingsLeft").html(thingsLeft - 1);
-			}
 
-			foundSomething = true;
-			break;
+				$("body").append("<div class='box' style='left:"
+					+ (diffInfo["minX"] + $("#testimage").offset().left)
+					+ "px; top:" + (diffInfo["minY"] + $("#testimage").offset().top) 
+					+ "px; width:"
+					+ (diffInfo["maxX"] - diffInfo["minX"]) + "px; height:"
+					+ (diffInfo["maxY"] - diffInfo["minY"] 
+					+ "px;' />"));
+
+				foundSomething = true;
+				break;
+			}
 		}
 	}
 
 	if (!foundSomething) {
-		alert("Nothing there!");
+		if (alreadyFound.length != 0) {
+			//alert("You already found the " + alreadyFound + ".");
+		} else {
+			//alert("Nothing there!");
+		}
 	}
 }
