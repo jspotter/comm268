@@ -1,0 +1,131 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://www.eyecanlearn.com/hidden%20pictures.htm
+			 */
+
+			var offset = 0;
+			var differences = {
+				"turtle": {
+					"minX": 40,
+					"minY": 88,
+					"maxX": 76,
+					"maxY": 153,
+					"found": false
+				},
+				"fish": {
+					"minX": 192,
+					"minY": 8,
+					"maxX": 218,
+					"maxY": 75,
+					"found": false
+				},
+				"baseball cap": {
+					"minX": 97,
+					"minY": 8,
+					"maxX": 157,
+					"maxY": 38,
+					"found": false
+				},
+				"duck": {
+					"minX": 268,
+					"minY": 6,
+					"maxX": 314,
+					"maxY": 42,
+					"found": false
+				},
+				"butterfly": {
+					"minX": 215,
+					"minY": 361,
+					"maxX": 245,
+					"maxY": 388,
+					"found": false
+				},
+				"scissors": {
+					"minX": 264,
+					"minY": 434,
+					"maxX": 324,
+					"maxY": 475,
+					"found": false
+				},
+				"needle": {
+					"minX": 368,
+					"minY": 400,
+					"maxX": 377,
+					"maxY": 463,
+					"found": false
+				},
+				"spoon": {
+					"minX": 303,
+					"minY": 147,
+					"maxX": 346,
+					"maxY": 240,
+					"found": false
+				},
+				"cane": {
+					"minX": 212,
+					"minY": 40,
+					"maxX": 242,
+					"maxY": 192,
+					"found": false
+				},
+				"nail": {
+					"minX": 5,
+					"minY": 379,
+					"maxX": 19,
+					"maxY": 435,
+					"found": false
+				},
+				"ice cream cone": {
+					"minX": 134,
+					"minY": 195,
+					"maxX": 162,
+					"maxY": 263,
+					"found": false
+				},
+				"ring": {
+					"minX": 314,
+					"minY": 375,
+					"maxX": 381,
+					"maxY": 402,
+					"found": false
+				},
+				"boot": {
+					"minX": 184,
+					"minY": 418,
+					"maxX": 238,
+					"maxY": 465,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Spot The Difference!
+		</h1>
+		<p>To find: baseball cap, turtle, fish, duck, needle, nail, ice-cream cone, butterfly, boot, spoon, cane, ring, and scissors</p>
+		<img id="testimage" 
+			src="foxandstork.gif"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+		Things left to find:
+		<div id="thingsLeft">
+		</div>
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
