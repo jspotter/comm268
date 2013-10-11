@@ -1,0 +1,153 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="myTimer.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://www.eyecanlearn.com/hidden%20pictures.htm
+			 */
+
+			var offset = 0;
+			var differences = {
+				"heart": {
+					"minX": 72,
+					"minY": 234,
+					"maxX": 100,
+					"maxY": 290,
+					"found": false
+				},
+				"fish": {
+					"minX": 17,
+					"minY": 265,
+					"maxX": 56,
+					"maxY": 296,
+					"found": false
+				},
+				"pizza": {
+					"minX": 181,
+					"minY": 79,
+					"maxX": 207,
+					"maxY": 142,
+					"found": false
+				},
+				"needle": {
+					"minX": 150,
+					"minY": 178,
+					"maxX": 162,
+					"maxY": 282,
+					"found": false
+				},
+				"umbrella": {
+					"minX": 219,
+					"minY": 314,
+					"maxX": 310,
+					"maxY": 485,
+					"found": false
+				},
+				"musical note": {
+					"minX": 285,
+					"minY": 52,
+					"maxX": 313,
+					"maxY": 123,
+					"found": false
+				},
+				"tack": {
+					"minX": 110,
+					"minY": 103,
+					"maxX": 155,
+					"maxY": 124,
+					"found": false
+				},
+				"swim fin": {
+					"minX": 48,
+					"minY": 27,
+					"maxX": 106,
+					"maxY": 106,
+					"found": false
+				},
+				"spool of thread": {
+					"minX": 209,
+					"minY": 221,
+					"maxX": 265,
+					"maxY": 292,
+					"found": false
+				},
+				"caterpillar": {
+					"minX": 219,
+					"minY": 125,
+					"maxX": 255,
+					"maxY": 140,
+					"found": false
+				},
+				"mushroom": {
+					"minX": 390,
+					"minY": 224,
+					"maxX": 419,
+					"maxY": 256,
+					"found": false
+				},
+				"worm": {
+					"minX": 395,
+					"minY": 335,
+					"maxX": 412,
+					"maxY": 439,
+					"found": false
+				},
+				"comb": {
+					"minX": 337,
+					"minY": 137,
+					"maxX": 418,
+					"maxY": 154,
+					"found": false
+				},
+				"eyeglasses": {
+					"minX": 309,
+					"minY": 163,
+					"maxX": 348,
+					"maxY": 201,
+					"found": false
+				},
+				"sock": {
+					"minX": 31,
+					"minY": 314,
+					"maxX": 86,
+					"maxY": 352,
+					"found": false
+				},
+				"bell": {
+					"minX": 366,
+					"minY": 278,
+					"maxX": 405,
+					"maxY": 326,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Find the hidden items!
+		</h1>
+		<p>To find: </p>
+
+		<div> You have <span id="timer"></span> to find these <span id="thingsLeft"></span> items. </div>
+		<img id="testimage" 
+			src="funatthefair.png"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
