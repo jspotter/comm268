@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://www.gamesrat.com/images/spot-the-difference-game1.JPG
+			 */
+
+			var offset = 500;
+			var differences = {
+				"center": {
+					"minX": 142,
+					"maxX": 158,
+					"minY": 36,
+					"maxY": 51,
+					"found": false
+				},
+				"side pattern": {
+					"minX": 250,
+					"maxX": 310,
+					"minY": 36,
+					"maxY": 82,
+					"found": false
+				},
+				"circle": {
+					"minX": 105,
+					"maxX": 123,
+					"minY": 185,
+					"maxY": 200,
+					"found": false
+				},
+				"gold colored strip": {
+					"minX": 95,
+					"maxX": 122,
+					"minY": 335,
+					"maxY": 375,
+					"found": false
+				},
+				"strip color difference": {
+					"minX": 265,
+					"maxX": 332,
+					"minY": 510,
+					"maxY": 537,
+					"found": false
+				},
+				"colored ring": {
+					"minX": 230,
+					"maxX": 270,
+					"minY": 150,
+					"maxY": 196,
+					"found": false
+				},
+				"white strip": {
+					"minX": 362,
+					"maxX": 378,
+					"minY": 120,
+					"maxY": 154,
+					"found": false
+				},
+				"circle ring": {
+					"minX": 35,
+					"maxX": 52,
+					"minY": 390,
+					"maxY": 405,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Spot The Difference!
+		</h1>
+		<br>
+		<img id="testimage" 
+			src="shells.png"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+		Things left to find:
+		<div id="thingsLeft">
+		</div>
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>

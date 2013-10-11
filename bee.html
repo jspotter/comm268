@@ -1,0 +1,96 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+                         * http://tx.english-ch.com/teacher/shelle/level-a/spot-the-differences-3-/*
+			 */
+
+			var offset = 500;
+			var differences = {
+				"bird": {
+					"minX": 110,
+					"maxX": 145,
+					"minY": 25,
+					"maxY": 45,
+					"found": false
+				},
+				"flower": {
+					"minX": 65,
+					"maxX": 93,
+					"minY": 130,
+					"maxY": 160,
+					"found": false
+				},
+				"smile": {
+					"minX": 312,
+					"maxX": 340,
+					"minY": 290,
+					"maxY": 310,
+					"found": false
+				},
+				"fingers": {
+					"minX": 150,
+					"maxX": 188,
+					"minY": 272,
+					"maxY": 330,
+					"found": false
+				},
+				"grass": {
+					"minX": 83,
+					"maxX": 92,
+					"minY": 575,
+					"maxY": 590,
+					"found": false
+				},
+				"feet": {
+					"minX": 300,
+					"maxX": 400,
+					"minY": 551,
+					"maxY": 600,
+					"found": false
+				},
+				"sun": {
+					"minX": 456,
+					"maxX": 484,
+					"minY": 25,
+					"maxY": 50,
+					"found": false
+				},
+				"tail": {
+					"minX": 280,
+					"maxX": 290,
+					"minY": 525,
+					"maxY": 532,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Spot The Difference!
+		</h1>
+		<br>
+		<img id="testimage" 
+			src="bee.jpg"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+		Things left to find:
+		<div id="thingsLeft">
+		</div>
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
