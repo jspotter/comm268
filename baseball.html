@@ -1,0 +1,173 @@
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="css.css">
+		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
+		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="myTimer.js"></script>
+		<script type="text/javascript">
+
+			/*
+			 * Source:
+			 *
+			 * http://www.eyecanlearn.com/hidden%20pictures.htm
+			 */
+
+			var offset = 0;
+			var differences = {
+				"teacup": {
+					"minX": 343,
+					"minY": 56,
+					"maxX": 392,
+					"maxY": 91,
+					"found": false
+				},
+				"hotdog": {
+					"minX": 394,
+					"minY": 41,
+					"maxX": 449,
+					"maxY": 101,
+					"found": false
+				},
+				"carrot": {
+					"minX": 183,
+					"minY": 26,
+					"maxX": 251,
+					"maxY": 112,
+					"found": false
+				},
+				"spoon": {
+					"minX": 70,
+					"minY": 430,
+					"maxX": 90,
+					"maxY": 565,
+					"found": false
+				},
+				"goblet": {
+					"minX": 502,
+					"minY": 550,
+					"maxX": 545,
+					"maxY": 618,
+					"found": false
+				},
+				"coin": {
+					"minX": 70,
+					"minY": 587,
+					"maxX": 124,
+					"maxY": 615,
+					"found": false
+				},
+				"soda": {
+					"minX": 77,
+					"minY": 286,
+					"maxX": 109,
+					"maxY": 372,
+					"found": false
+				},
+				"telescope": {
+					"minX": 117,
+					"minY": 321,
+					"maxX": 145,
+					"maxY": 490,
+					"found": false
+				},
+				"pail": {
+					"minX": 331,
+					"minY": 492,
+					"maxX": 373,
+					"maxY": 545,
+					"found": false
+				},
+				"fish": {
+					"minX": 563,
+					"minY": 64,
+					"maxX": 611,
+					"maxY": 117,
+					"found": false
+				},
+				"glasses": {
+					"minX": 470,
+					"minY": 31,
+					"maxX": 541,
+					"maxY": 115,
+					"found": false
+				},
+				"magnify glass": {
+					"minX": 207,
+					"minY": 570,
+					"maxX": 318,
+					"maxY": 613,
+					"found": false
+				},
+				"pencil": {
+					"minX": 270,
+					"minY": 400,
+					"maxX": 299,
+					"maxY": 516,
+					"found": false
+				},
+				"cone": {
+					"minX": 611,
+					"minY": 136,
+					"maxX": 650,
+					"maxY": 205,
+					"found": false
+				},
+				"balloon": {
+					"minX": 430,
+					"minY": 588,
+					"maxX": 501,
+					"maxY": 630,
+					"found": false
+				},
+				"wristwatch": {
+					"minX": 345,
+					"minY": 368,
+					"maxX": 479,
+					"maxY": 391,
+					"found": false
+				},
+				"ring": {
+					"minX": 571,
+					"minY": 561,
+					"maxX": 625,
+					"maxY": 608,
+					"found": false
+				},
+				"pear": {
+					"minX": 462,
+					"minY": 320,
+					"maxX": 485,
+					"maxY": 359,
+					"found": false
+				},
+				"paintbrush": {
+					"minX": 59,
+					"minY": 17,
+					"maxX": 141,
+					"maxY": 103,
+					"found": false
+				}
+			};
+		</script>
+	</head>
+
+	<body>
+		<h1>
+			Find The Hidden Objects!
+		</h1>
+
+		<div> You have <span id="timer"></span> to find these <span id="thingsLeft"></span> items. </div>
+		<img id="testimage" 
+			src="baseball.jpg"
+			onclick="onImageClick(event, differences, offset);">
+		<br>
+
+		<script type="text/javascript">
+			$("#thingsLeft").html(Object.keys(differences).length);
+		</script>
+		<br>
+		Found:
+		<div id="status">
+		</div>
+	</body>
+</html>
