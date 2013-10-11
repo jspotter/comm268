@@ -39,13 +39,18 @@ function onImageClick(event, differences, offset) {
 				var thingsLeft = parseInt($("#thingsLeft").html());
 				$("#thingsLeft").html(thingsLeft - 1);
 
-				$("body").append("<div class='box' style='left:"
-					+ (diffInfo["minX"] + $("#testimage").offset().left)
-					+ "px; top:" + (diffInfo["minY"] + $("#testimage").offset().top) 
+				var front_string = "<div class='box' style='left:";
+				var back_string = "px; top:" + (diffInfo["minY"] + $("#testimage").offset().top) 
 					+ "px; width:"
 					+ (diffInfo["maxX"] - diffInfo["minX"]) + "px; height:"
-					+ (diffInfo["maxY"] - diffInfo["minY"] 
-					+ "px;' />"));
+					+ (diffInfo["maxY"] - diffInfo["minY"]) 
+					+ "px;' />"
+				$("body").append(front_string
+					+ (diffInfo["minX"] + $("#testimage").offset().left)
+					+ back_string);
+				$("body").append(front_string
+					+ (diffInfo["minX"] + $("#testimage").offset().left + offset)
+					+ back_string);
 
 				foundSomething = true;
 				break;
@@ -55,9 +60,9 @@ function onImageClick(event, differences, offset) {
 
 	if (!foundSomething) {
 		if (alreadyFound.length != 0) {
-			alert("You already found the " + alreadyFound + ".");
+			//alert("You already found the " + alreadyFound + ".");
 		} else {
-			alert("Nothing there!");
+			//alert("Nothing there!");
 		}
 	}
 }

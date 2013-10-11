@@ -1,5 +1,5 @@
 // http://stackoverflow.com/questions/1191865/code-for-a-simple-javascript-countdown-timer
-var count=30;	// number of seconds to allow
+var count=120;	// number of seconds to allow
 
 var counter=setInterval(timer, 1000); //1000 will  run it every 1 second
 function timer()

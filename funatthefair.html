@@ -134,7 +134,14 @@
 		<h1>
 			Find the hidden items!
 		</h1>
-		<p>To find: </p>
+		<p id="to_find">To find: </p>
+		<script type="text/javascript">
+			for (var diff in differences) {
+				$("#to_find").html($("#to_find").html() + diff + ", ");
+			}
+			var to_find_str = $("#to_find").html();
+			$("#to_find").html(to_find_str.substring(0, to_find_str.length - 2));
+		</script>
 
 		<div> You have <span id="timer"></span> to find these <span id="thingsLeft"></span> items. </div>
 		<img id="testimage" 
