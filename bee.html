@@ -3,12 +3,18 @@
 		<link rel="stylesheet" type="text/css" href="css.css">
 		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="myTimer.js"></script>
 		<script type="text/javascript">
 
-			/*
-			 * Source:
-			 *
-                         * http://tx.english-ch.com/teacher/shelle/level-a/spot-the-differences-3-/*
+
+
+			// var myTimer = setTimeout(function(){alert("Hello")},3000);
+            // clearTimeout(myTimer)
+
+                            /*
+                             * Source:
+                             *
+                           * http://tx.english-ch.com/teacher/shelle/level-a/spot-the-differences-3-/*
 			 */
 
 			var offset = 500;
@@ -77,14 +83,14 @@
 		<h1>
 			Spot The Difference!
 		</h1>
+		<div> You have <span id="timer"></span> to find the <span id="thingsLeft"></span> differences. </div>
 		<br>
 		<img id="testimage" 
 			src="bee.jpg"
 			onclick="onImageClick(event, differences, offset);">
 		<br>
-		Things left to find:
-		<div id="thingsLeft">
-		</div>
+
+
 		<script type="text/javascript">
 			$("#thingsLeft").html(Object.keys(differences).length);
 		</script>

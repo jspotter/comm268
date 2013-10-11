@@ -3,6 +3,7 @@
 		<link rel="stylesheet" type="text/css" href="css.css">
 		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="myTimer.js"></script>
 		<script type="text/javascript">
 
 			/*
@@ -113,13 +114,13 @@
 			Spot The Difference!
 		</h1>
 		<p>To find: baseball cap, turtle, fish, duck, needle, nail, ice-cream cone, butterfly, boot, spoon, cane, ring, and scissors</p>
+
+		<div> You have <span id="timer"></span> to find these <span id="thingsLeft"></span> items. </div>
 		<img id="testimage" 
 			src="foxandstork.gif"
 			onclick="onImageClick(event, differences, offset);">
 		<br>
-		Things left to find:
-		<div id="thingsLeft">
-		</div>
+
 		<script type="text/javascript">
 			$("#thingsLeft").html(Object.keys(differences).length);
 		</script>

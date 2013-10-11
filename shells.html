@@ -3,6 +3,7 @@
 		<link rel="stylesheet" type="text/css" href="css.css">
 		<script type="text/javascript" src="jquery-1.8.2.min.js"></script>
 		<script type="text/javascript" src="js.js"></script>
+		<script type="text/javascript" src="myTimer.js"></script>
 		<script type="text/javascript">
 
 			/*
@@ -77,14 +78,14 @@
 		<h1>
 			Spot The Difference!
 		</h1>
+		<div> You have <span id="timer"></span> to find the <span id="thingsLeft"></span> differences. </div>
 		<br>
 		<img id="testimage" 
 			src="shells.png"
 			onclick="onImageClick(event, differences, offset);">
 		<br>
-		Things left to find:
-		<div id="thingsLeft">
-		</div>
+
+
 		<script type="text/javascript">
 			$("#thingsLeft").html(Object.keys(differences).length);
 		</script>
