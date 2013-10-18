@@ -1,5 +1,42 @@
+var puzzle = "?";
+var clicks = 0;
+var correct = 0;
+var timeTaken = -1;
+var count = 30;	// number of seconds to allow
+var counter = 0;
+
+/* Initialize global data for puzzle. */
+function init(puzzleName) {
+	puzzle = puzzleName;
+	clicks = 0;
+	correct = 0;
+	counter = setInterval(timer, 1000); //1000 will  run it every 1 second
+	document.getElementById("timer").innerHTML = count + " secs"; // watch for spelling
+}
+
+// http://stackoverflow.com/questions/1191865/code-for-a-simple-javascript-countdown-timer
+
+function timer()
+{
+  count--;
+	timeTaken++;
+  if (count < 0)
+  {
+     clearInterval(counter);
+     alert("Time is up!");
+		 $.post("submit.php", {"time": timeTaken, "puzzle": puzzle, "clicks": clicks, 
+				"correct": correct});
+     return;
+  }
+
+ document.getElementById("timer").innerHTML=count + " secs"; // watch for spelling
+}
+
 /* Handle click events on puzzle image. */
 function onImageClick(event, differences, offset) {
+	// Update global click count
+	clicks++;
+
 	// Get coordinates relative to image placement
 	var x = event.pageX - $("#testimage").offset().left;
 	var y = event.pageY - $("#testimage").offset().top;
@@ -28,6 +65,9 @@ function onImageClick(event, differences, offset) {
 			
 			// Didn't find this one yet, so mark it as found
 			else {
+				// Update global correct count
+				correct++;
+
 				console.log("Found the " + diff + ".");
 				differences[diff]["found"] = true;
 				var others = $("#status").html();
@@ -52,6 +92,15 @@ function onImageClick(event, differences, offset) {
 					+ (diffInfo["minX"] + $("#testimage").offset().left + offset)
 					+ back_string);
 
+				// Check if we're done
+				if (thingsLeft - 1 == 0) {
+     			clearInterval(counter);
+     			alert("Congrats, you found everything!");
+		 			$.post("submit.php", {"time": timeTaken, "puzzle": puzzle, "clicks": clicks, 
+						"correct": correct});
+					return;
+				}
+
 				foundSomething = true;
 				break;
 			}
@@ -60,9 +109,9 @@ function onImageClick(event, differences, offset) {
 
 	if (!foundSomething) {
 		if (alreadyFound.length != 0) {
-			//alert("You already found the " + alreadyFound + ".");
+			alert("You already found the " + alreadyFound + ".");
 		} else {
-			//alert("Nothing there!");
+			alert("Nothing there!");
 		}
 	}
 }
