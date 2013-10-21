@@ -11,3 +11,8 @@
 	border: 1px solid red;
 	pointer-events: none;
 }
+
+#status
+{
+	font-size: 30pt;
+}

@@ -2,7 +2,7 @@ var puzzle = "?";
 var clicks = 0;
 var correct = 0;
 var timeTaken = -1;
-var count = 30;	// number of seconds to allow
+var count = 120;	// number of seconds to allow
 var counter = 0;
 
 /* Initialize global data for puzzle. */
