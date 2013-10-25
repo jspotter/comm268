@@ -120,6 +120,7 @@ function onImageClick(event, differences, offset) {
      			alert("Congrats, you found everything!");
 		 			$.post("submit.php", {"time": timeTaken, "puzzle": puzzle, "clicks": clicks, 
 						"correct": correct});
+					window.location = "instructions.php?next=" + next_page[puzzle];
 					return;
 				}
 
