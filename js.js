@@ -9,12 +9,10 @@ var next_page = {
 	"start": "merman",
 	"merman": "whocheated",
 	"whocheated": "baseball",
-	"baseball": "whocheated",
-	"whocheated": "piglet",
+	"baseball": "piglet",
 	"piglet": "cardtrick",
 	"cardtrick": "foxandstork",
-	"foxandstork": "exclamation",
-	"exclamation": "shells",
+	"foxandstork": "shells",
 	"shells": "whodunit",
 	"whodunit": "frog",
 	"frog": "smurf",
@@ -134,9 +132,9 @@ function onImageClick(event, differences, offset) {
 
 	if (!foundSomething) {
 		if (alreadyFound.length != 0) {
-			alert("You already found the " + alreadyFound + ".");
+			//alert("You already found the " + alreadyFound + ".");
 		} else {
-			alert("Nothing there!");
+			//alert("Nothing there!");
 		}
 	}
 }
