@@ -1,8 +1,8 @@
 <?php
 	include_once("../dbfuncs.php");
 	include("./sqlconnect.php");
-	$result = executeQuery($db, "select * from Data;");
-	$result2 = executeQuery($db, "select * from Video;");
+	$result = executeQuery($db, "select * from Data order by sunetid;");
+	$result2 = executeQuery($db, "select * from Video order by sunetid;");
 	include("../sqldisconnect.php");
 ?>
 
