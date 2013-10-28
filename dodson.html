@@ -7,9 +7,11 @@
 		<h1>
 			Video: Exclamation Points
 		</h1>
-		<video id="video" src="dodson.mp4" type="video/mp4" autoplay="true">
-			Your browser doesn't seem to support the video tag.
-		</video>
+		<video id="video" autoplay='true'>
+			<source src="dodson.mp4" type="video/mp4">
+			<source src="dodson.webm" type="video/webm">
+			Your browser doesn't seem to support the video tag
+		</video> 
 		<br>
 		<input class="button" type="submit" value="Continue >>"
 			onclick="window.location='questions.php?puzzle=' + puzzle;">
