@@ -45,6 +45,54 @@
 
 	$puzzle = $_POST["puzzle"];
 
+	/* Diff function taken from Paul Butler.
+	 *
+	 * http://compsci.ca/v3/viewtopic.php?t=15705
+	 */
+	
+	function diff($old, $new)
+	{
+		foreach($old as $oindex => $ovalue)
+		{
+						$nkeys = array_keys($new, $ovalue);
+						foreach($nkeys as $nindex)
+						{
+										$matrix[$oindex][$nindex] = isset($matrix[$oindex - 1][$nindex - 1]) ?
+														$matrix[$oindex - 1][$nindex - 1] + 1 : 1;
+										if($matrix[$oindex][$nindex] > $maxlen)
+										{
+														$maxlen = $matrix[$oindex][$nindex];
+														$omax = $oindex + 1 - $maxlen;
+														$nmax = $nindex + 1 - $maxlen;
+										}
+						}       
+		}
+		if($maxlen == 0) return array(array('d'=>$old, 'i'=>$new));
+		return array_merge(
+						diff(array_slice($old, 0, $omax), array_slice($new, 0, $nmax)),
+						array_slice($new, $nmax, $maxlen),
+						diff(array_slice($old, $omax + $maxlen), array_slice($new, $nmax + $maxlen)));
+	} 
+
+	function get_score($answer, $content) {
+		$array1 = str_split($answer);
+		$array2 = str_split($content);
+		$diff = diff($array1, $array2);
+		
+		$wrong = 0;
+		foreach ($diff as $d)
+		{
+			if (is_array($d))
+			{
+				$wrong += max(count($d["d"]), count($d["i"]));
+			}
+		}
+		$total = max(count($array1), count($array2));
+		
+		$percentage = max(round(($total - $wrong) / $total, 2), 0);
+		return $percentage;
+	}
+
 	function grade($db, $answers, $puzzle_name, $correct_answers, $student_id) {
 		$num_correct = 0;
 		$total = 0;
@@ -53,8 +101,15 @@
 				$total++;
 				$is_correct = ($answers[$question] == $correct_answers[$question]);
 				if ($is_correct) $num_correct++;
+				
+				// Compute score (cardtrick_text_2 is a special case)
+				$score = ($is_correct ? 1.0 : 0.0);
+				if ($question == "cardtrick_text_2") {
+					$score = get_score($answers[$question], $correct_answers[$question]);
+				}
+
 				$stmt = "insert into Video values(NULL, '" . $student_id . "', '" . $puzzle_name . "', '"
-					. $question . "', '" . $answers[$question] . "', " . ($is_correct ? "1" : "0")
+					. $question . "', '" . $answers[$question] . "', " . $score
 					. ");";
 				executeQuery($db, $stmt);
 			}

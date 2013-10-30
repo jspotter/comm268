@@ -47,7 +47,7 @@
 				<th>Puzzle</th>
 				<th>Question ID</th>
 				<th>Answer</th>
-				<th>Correct?</th>
+				<th>Score</th>
 			</tr>
 			<?php
 				foreach ($result2 as $row) {
@@ -57,7 +57,7 @@
 						<td><?= $row["puzzle"] ?></td>
 						<td><?= $row["question"] ?></td>
 						<td><?= $row["answer"] ?></td>
-						<td><?= ($row["correct"] == "1" ? "correct" : "incorrect") ?></td>
+						<td><?= $row["correct"] ?></td>
 					</tr>
 			<?php
 				}

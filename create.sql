@@ -15,6 +15,6 @@ create table if not exists Video
 	puzzle varchar(50),
 	question varchar(50),
 	answer varchar(100),
-	correct integer
+	correct real
 );
 
