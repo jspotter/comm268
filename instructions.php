@@ -72,7 +72,7 @@
 						Video: Whodunit
 					</h1>
 					<h3>
-						Watch the video giving special attention to what was asked in the instructions at the beginning. You will be asked to answer those questions at the end.
+						Watch the video closely. Pay attention to the details of the investigation.
 					</h3>
 			<?php
 				} else if ($next == "dodson") {
