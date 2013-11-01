@@ -77,6 +77,14 @@
 					"found": false
 				}
 			};
+			
+			offset *= 0.7;
+			for (var diff in differences) {
+				differences[diff]["minX"] *= 0.7;
+				differences[diff]["maxX"] *= 0.7;
+				differences[diff]["minY"] *= 0.7;
+				differences[diff]["maxY"] *= 0.7;
+			}
 		</script>
 	</head>
 
@@ -88,7 +96,12 @@
 		<br>
 		<img id="testimage" 
 			src="shells.png"
-			onclick="onImageClick(event, differences, offset);">
+			onclick="onImageClick(event, differences, offset);"
+			onload="
+				var orig_width = $('#testimage').width();
+				var orig_height = $('#testimage').height();
+				$('#testimage').height(orig_height * 0.7).width(orig_width * 0.7);
+			">
 		<br>
 
 

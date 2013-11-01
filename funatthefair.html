@@ -126,6 +126,14 @@
 					"found": false
 				}
 			};
+			
+			offset *= 0.8;
+			for (var diff in differences) {
+				differences[diff]["minX"] *= 0.8;
+				differences[diff]["maxX"] *= 0.8;
+				differences[diff]["minY"] *= 0.8;
+				differences[diff]["maxY"] *= 0.8;
+			}
 		</script>
 	</head>
 
@@ -145,7 +153,12 @@
 		<div> You have <span id="timer"></span> to find these <span id="thingsLeft"></span> items. </div>
 		<img id="testimage" 
 			src="funatthefair.png"
-			onclick="onImageClick(event, differences, offset);">
+			onclick="onImageClick(event, differences, offset);"
+			onload="
+				var orig_width = $('#testimage').width();
+				var orig_height = $('#testimage').height();
+				$('#testimage').height(orig_height * 0.8).width(orig_width * 0.8);
+			">
 		<br>
 
 		<script type="text/javascript">
