@@ -76,6 +76,14 @@
 					"found": false
 				}
 			};
+
+			offset *= 0.9;
+			for (var diff in differences) {
+				differences[diff]["minX"] *= 0.9;
+				differences[diff]["maxX"] *= 0.9;
+				differences[diff]["minY"] *= 0.9;
+				differences[diff]["maxY"] *= 0.9;
+			}
 		</script>
 	</head>
 
@@ -87,7 +95,12 @@
 		<br>
 		<img id="testimage" 
 			src="merman.jpg"
-			onclick="onImageClick(event, differences, offset);">
+			onclick="onImageClick(event, differences, offset);"
+			onload="
+				var orig_width = $('#testimage').width();
+				var orig_height = $('#testimage').height();
+				$('#testimage').height(orig_height * 0.9).width(orig_width * 0.9);
+			">
 		<br>
 
 		<script type="text/javascript">
