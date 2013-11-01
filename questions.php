@@ -171,6 +171,7 @@
 				<h3>How many red cards were dealt?</h3>
 				<input name="cardtrick_text_1" type="text"></input>
 				<h3>What did the message written on the back of some of the cards say?</h3>
+				<p>You will get points even for being close.</p>
 				<textarea name="cardtrick_text_2"></textarea>
 			<?php
 				}
