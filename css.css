@@ -29,3 +29,11 @@
 {
 	cursor: pointer;
 }
+
+#loading
+{
+	position: absolute;
+	left: 130px;
+	top: 150px;
+	max-width: 50px;
+}

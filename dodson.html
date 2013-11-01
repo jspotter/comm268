@@ -3,10 +3,13 @@
 		<link rel="stylesheet" type="text/css" href="css.css">
 		<script type="text/javascript" src="js.js"></script>
 	</head>
-	<body onload="init('dodson', 0);">
+	<body onLoad="init('dodson', 0); $('#loading').hide();">
 		<h1>
 			Video: Exclamation Points
 		</h1>
+		<p>Please be patient as this video may take a few
+		seconds to load.</p>
+		<img id="loading" src="loading.gif" />
 		<video id="video" autoplay='true'>
 			<source src="dodson.mp4" type="video/mp4">
 			<source src="dodson.webm" type="video/webm">
@@ -14,6 +17,6 @@
 		</video> 
 		<br>
 		<input class="button" type="submit" value="Continue >>"
-			onclick="window.location='questions.php?puzzle=' + puzzle;">
+			onclick="window.location='questions.php?puzzle=dodson';">
 	</body>
 </html>

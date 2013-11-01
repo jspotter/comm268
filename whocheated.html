@@ -3,10 +3,11 @@
 		<link rel="stylesheet" type="text/css" href="css.css">
 		<script type="text/javascript" src="js.js"></script>
 	</head>
-	<body onload="init('whocheated', 0);">
+	<body onLoad="init('whocheated', 0); $('#loading').hide();">
 		<h1>
 			Video: Who Cheated?
 		</h1>
+		<img id="loading" src="loading.gif" />
 		<video id="video" autoplay='true'>
 			<source src="whocheated.mp4" type="video/mp4">
 			<source src="whocheated.webm" type="video/webm">
@@ -14,6 +15,6 @@
 		</video> 
 		<br>
 		<input class="button" type="submit" value="Continue >>"
-			onclick="window.location='questions.php?puzzle=' + puzzle;">
+			onclick="window.location='questions.php?puzzle=whocheated';">
 	</body>
 </html>
