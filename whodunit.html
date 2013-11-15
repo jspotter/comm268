@@ -16,6 +16,12 @@
 			Your browser doesn't seem to support the video tag
 		</video> 
 		<br>
+		<script type="text/javascript">
+			if ($.browser.mozilla) {
+				$("#video").remove();
+				$("body").append("<iframe src='whodunit.mp4'></iframe><br>");
+			}
+		</script>
 		<input class="button" type="submit" value="Continue >>"
 			onclick="window.location='questions.php?puzzle=whodunit';">
 	</body>

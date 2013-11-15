@@ -37,3 +37,10 @@
 	top: 150px;
 	max-width: 50px;
 }
+
+iframe
+{
+	width: 400px;
+	height: 260px;
+	pointer-events: none;
+}
