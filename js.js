@@ -1,3 +1,8 @@
+/* Hack to make sure that "www" appears at start of URL. */
+if (window.location.contains("http://stanford")) {
+	window.location = "http://www.stanford" + window.location.substring(15);
+}
+
 var puzzle = "?";
 var clicks = 0;
 var correct = 0;
