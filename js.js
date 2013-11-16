@@ -1,5 +1,6 @@
 /* Hack to make sure that "www" appears at start of URL. */
-if (window.location.contains("http://stanford")) {
+var curr_url = "" + document.URL;
+if (curr_url.indexOf("http://stanford") != -1) {
 	window.location = "http://www.stanford" + window.location.substring(15);
 }
 
