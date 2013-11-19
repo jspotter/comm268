@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 	<head>
 		<link rel="stylesheet" type="text/css" href="css.css">
@@ -12,14 +13,14 @@
 		seconds to load.</p>
 		<img id="loading" src="loading.gif" />
 		<video id="video" autoplay>
-			<source src="cardtrick.mp4" type="video/mp4">
+			<source src="http://www.stanford.edu/~jspotter/cgi-bin/comm268public/cardtrick.mp4" type="video/mp4">
 			Your browser doesn't seem to support the video tag
 		</video> 
 		<br>
 		<script type="text/javascript">
 			if ($.browser.mozilla) {
 				$("#video").remove();
-				$("body").append("<iframe src='cardtrick.mp4'></iframe><br>");
+				$("body").append("<iframe src='http://www.stanford.edu/~jspotter/cgi-bin/comm268public/cardtrick.mp4'></iframe><br>");
 			}
 		</script>
 		<input class="button" type="submit" value="Continue >>"
