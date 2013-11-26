@@ -129,7 +129,8 @@
 		. "' and puzzle='" . $puzzle . "';";
 	$result2 = executeQuery($db, $query2);
 	if (count($result) > 0 or count($result2) > 0) {
-		if (in_array($id, $whitelist)) {
+		// Video loading was messed up, so let people re-submit.
+		if (true) { //in_array($id, $whitelist)) {
 			$stmt = "delete from Video where sunetid='" . $id
 				. "' and puzzle='" . $puzzle . "';";
 			executeQuery($db, $stmt);
